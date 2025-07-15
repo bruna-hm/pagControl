@@ -1,4 +1,4 @@
-<><h2><center>pagControl</center></h2>
+<h2><center>pagControl</center></h2>
 
 O pagControl é um aplicativo Desktop feito em Python, para estudo de CRUD, GUI com tkinter e Programação Orientada à Objetos em Python. Feito a partir das necessidades do cliente; registrar pagamentos de alunos.
 <br>Funcionalidades: cadastrar Alunos, cadastrar Pagamentos, vizualizar Alunos e seus pagamentos registrados, editar Turma, editar Valor de pagamento e excluir Aluno(exclui também seus pagamentos).
