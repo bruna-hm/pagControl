@@ -50,7 +50,7 @@ class mainFrame(tk.Tk):
         mes = mes_atual()
         dia_da_semana = dia_semana(date.weekday())
         date_lbl = ttk.Label(self, 
-                            text=f" {dia_da_semana}\n {date.strftime('%d')}/{mes_pt(mes)}/{date.strftime('%Y')}",
+                            text=f"   {dia_da_semana}\n {date.strftime('%d')}/{mes_pt(mes)}/{date.strftime('%Y')}",
                             style="Data.TLabel", background="white")
         date_lbl.place(x=180, y=105)
         

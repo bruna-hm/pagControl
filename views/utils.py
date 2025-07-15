@@ -48,5 +48,5 @@ def dia_semana(dia_da_semana):
         5: "Sábado",
         6: "Domingo"
     }
-    dia = datetime.now().weekday()
+    
     return dias.get(dia_da_semana)

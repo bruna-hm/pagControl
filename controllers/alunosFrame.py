@@ -129,7 +129,7 @@ class alunosFrame(tk.Toplevel):
                                     self.popular_treeview(),
                                     self.atualizar_atrasados(),
                                     self.container_edit.destroy())
-                                    if turma_cbb.get() or nome_cbb.get() else messagebox.showerror("Erro", "Campo em Branco, verifique as informações!")
+                                    if turma_cbb.get() and nome_cbb.get() else messagebox.showerror("Erro", "Campo em Branco, verifique as informações!")
                                 ))
         salvar_btn.place(x=10, y=130)
 
