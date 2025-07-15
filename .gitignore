@@ -1,5 +1,6 @@
-.venv
-.build
-.dist
+.venv/
+.build/
+.dist/
 .pagControl.db
+.main.spec
 .__pycache__
