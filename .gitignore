@@ -3,6 +3,6 @@ venv/
 build/
 dist/
 *.spec
-.pagControl.db
+pagControl.db
 .__pycache__
 .DS_Store
