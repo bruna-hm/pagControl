@@ -13,7 +13,6 @@ class pagamentoFrame(tk.Toplevel):
         super().__init__(master)
         self.iconbitmap(default=resource_path("assets/img/dojo.ico"))    
         self.atualizar_atrasados = atualizar_atrasados
-        self.title("Bunshin Dojo")
         self.title("Registro de pagamento")
         self.resizable(False, False)
         

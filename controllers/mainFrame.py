@@ -12,8 +12,7 @@ class mainFrame(tk.Tk):
     def __init__(self):
         super().__init__()
         self.iconbitmap(default=resource_path("assets/img/dojo.ico"))
-        self.title("Bunshin Dojo")
-        self.title("Sistema de Alunos")
+        self.title("Kanshin Dojo - Sistema de Alunos")
         self.configure(bg="white")  
         self.resizable(False, False)
         

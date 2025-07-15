@@ -11,7 +11,6 @@ class alunosFrame(tk.Toplevel):
         super().__init__(master)
         self.iconbitmap(default=resource_path("assets/img/dojo.ico"))
         self.atualizar_atrasados = atualizar_atrasados
-        self.title("Bunshin Dojo")
         self.title("Visualização de Alunos")
         self.configure(bg="white")
         self.resizable(False, False)
