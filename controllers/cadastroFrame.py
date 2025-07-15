@@ -38,8 +38,7 @@ class cadastroFrame(tk.Toplevel):
         
         turma_lbl = ttk.Label(self, text="Turma:", style="Formulario.TLabel")
         turma_lbl.place(x=30, y=105)
-        turma_var = tk.StringVar()
-        turma_cbb = ttk.Combobox(self, textvariable=turma_var)
+        turma_cbb = ttk.Combobox(self)
         turma_cbb['values'] = ('18:30 - 19:30', '20:00 - 21:30')
         turma_cbb.place(x=110, y=110)
         

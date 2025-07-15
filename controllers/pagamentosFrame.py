@@ -40,8 +40,7 @@ class pagamentoFrame(tk.Toplevel):
         style.configure("Formulario.TEntry", font=("Segoe Ui", 20),  padding=5)
         mes_lbl = ttk.Label(self, text="Mês:", style="Formulario.TLabel")
         mes_lbl.place(x=36, y=105)
-        mes_var = tk.StringVar()
-        mes_cbb = ttk.Combobox(self, textvariable=mes_var)
+        mes_cbb = ttk.Combobox(self)
         mes_cbb['values'] = [mes_pt(mes) for mes in range(1, 13)]
         mes_cbb.place(x=98, y=110)
         
