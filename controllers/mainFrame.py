@@ -12,7 +12,7 @@ class mainFrame(tk.Tk):
     def __init__(self):
         super().__init__()
         self.withdraw()
-        icon_path = resource_path("dojo.png")
+        icon_path = resource_path("assets/img/dojo.png")
         icon = tk.PhotoImage(file=icon_path)
         self.iconphoto(False, icon)
         self.title("Bunshin Dojo")
@@ -46,7 +46,7 @@ class mainFrame(tk.Tk):
         infos2_lbl = ttk.Label(self, text="Sensei João Francisco", style="Subtitulo.TLabel", background="white")
         infos2_lbl.place(x=165, y=65)
 
-        logo_path = resource_path("logo.png")
+        logo_path = resource_path("assets/img/logo.png")
         self.img = tk.PhotoImage(file=logo_path)
         img_lbl = ttk.Label(self, image=self.img, background="white")
         img_lbl.place(x=30, y=40)

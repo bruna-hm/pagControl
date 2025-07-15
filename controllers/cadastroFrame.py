@@ -10,7 +10,7 @@ class cadastroFrame(tk.Toplevel):
     def __init__(self, master=None, atualizar_atrasados=None):
         super().__init__(master)
         self.withdraw()
-        icon_path = resource_path("dojo.png")
+        icon_path = resource_path("assets/img/dojo.png")
         icon = tk.PhotoImage(file=icon_path)
         self.iconphoto(False, icon)
         self.atualizar_atrasados = atualizar_atrasados
