@@ -26,7 +26,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='BunshinDojo',
+    name='KanshinDojo',
     debug=False,
     icon='assets/img/dojo.ico',
     bootloader_ignore_signals=False,
