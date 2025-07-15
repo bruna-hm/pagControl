@@ -14,5 +14,5 @@ O pagControl é um aplicativo Desktop feito em Python, para estudo de CRUD, GUI 
 </ol>
 
 ## Sugestões e contribuições
-Qualquer melhoria, feat ou comentário sobre o projeto, por favor, entrem em contato por: 
+Qualquer melhoria ou comentário sobre o projeto, por favor, entrem em contato por: 
 <strong>brunaahm@gmail.com</strong>
