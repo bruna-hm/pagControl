@@ -60,7 +60,7 @@ class mainFrame(tk.Tk):
         cadastro_btn.place(x=500, y=40, width=200)
         registro_btn = ttk.Button(self, text="Registrar pagamento", style="Style.TButton", command=self.abrir_pagamento)
         registro_btn.place(x=500, y=80, width=200)
-        visualizar_alunos = ttk.Button(self, text="Alunos", style="Style.TButton", command=self.abrir_alunos)
+        visualizar_alunos = ttk.Button(self, text="Visualizar Alunos", style="Style.TButton", command=self.abrir_alunos)
         visualizar_alunos.place(x=500, y=120, width=200)
         
         sep = ttk.Separator(self, orient="horizontal")
