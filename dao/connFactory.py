@@ -24,7 +24,8 @@ class dao():
                     valor REAL DEFAULT 0,
                     FOREIGN KEY (aluno_id) REFERENCES alunos(id) ON DELETE CASCADE);
                     ''')
-        
+
+#Retirar a hashtag abaixo para zerar contagem de ids em autoincrement no banco de dados
 #        cur.execute('DELETE FROM sqlite_sequence WHERE name = "alunos" AND name = "pagamentos";')
         
         conn.commit()

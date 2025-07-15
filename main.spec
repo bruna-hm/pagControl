@@ -5,7 +5,11 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('dojo.png', '.'), ('logo.png', '.')],
+    datas=[
+    ('assets/img/dojo.png', 'assets/img'),
+    ('assets/img/logo.png', 'assets/img'),
+    ('assets/img/dojo.ico', 'assets/img')
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -24,7 +28,7 @@ exe = EXE(
     [],
     name='BunshinDojo',
     debug=False,
-    icon='dojo.ico',
+    icon='assets/img/dojo.ico',
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,

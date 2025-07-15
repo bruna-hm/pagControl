@@ -11,10 +11,7 @@ from dao.pagDao import atrasados
 class mainFrame(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.withdraw()
-        icon_path = resource_path("assets/img/dojo.png")
-        icon = tk.PhotoImage(file=icon_path)
-        self.iconphoto(False, icon)
+        self.iconbitmap(default=resource_path("assets/img/dojo.ico"))
         self.title("Bunshin Dojo")
         self.title("Sistema de Alunos")
         self.configure(bg="white")  
@@ -30,8 +27,6 @@ class mainFrame(tk.Tk):
         
         self.atrasados_labels = []
         self.create_widgets()
-        self.update_idletasks()
-        self.deiconify()
 
     def create_widgets(self):
         style = ttk.Style()

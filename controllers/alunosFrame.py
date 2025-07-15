@@ -9,10 +9,7 @@ from dao.pagDao import listar_pgts, edit_pgt, meses_pgt, anos_pgt
 class alunosFrame(tk.Toplevel):
     def __init__(self, master=None, atualizar_atrasados=None):
         super().__init__(master)
-        self.withdraw()
-        icon_path = resource_path("assets/img/dojo.png")
-        icon = tk.PhotoImage(file=icon_path)
-        self.iconphoto(False, icon)
+        self.iconbitmap(default=resource_path("assets/img/dojo.ico"))
         self.atualizar_atrasados = atualizar_atrasados
         self.title("Bunshin Dojo")
         self.title("Visualização de Alunos")
@@ -30,7 +27,6 @@ class alunosFrame(tk.Toplevel):
         pos_y = ((altura_tela - altura) // 2) - 50
         self.geometry(f"{largura}x{altura}+{pos_x}+{pos_y}")
         self.create_widgets()
-        self.deiconify()
         
     def create_widgets(self):
         style = ttk.Style()
@@ -58,7 +54,7 @@ class alunosFrame(tk.Toplevel):
 
         self.popular_treeview()
 
-        style.configure("Acao.TButton", font=("Consolas", 10), padding=(10, 5))
+        style.configure("Acao.TButton", font=("Consolas", 12), padding=(10, 5))
         editTurma_btn = ttk.Button(self, text="Editar Turma", style="Acao.TButton",
                            command=lambda: self.abrir_container_editurma())
         editTurma_btn.place(x=660, y=40, width=200)

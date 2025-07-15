@@ -11,10 +11,7 @@ from dao.alunoDao import cbb_alunos, id_aluno
 class pagamentoFrame(tk.Toplevel):
     def __init__(self, master=None, atualizar_atrasados=None):
         super().__init__(master)
-        self.withdraw()
-        icon_path = resource_path("assets/img/dojo.png")
-        icon = tk.PhotoImage(file=icon_path)
-        self.iconphoto(False, icon)
+        self.iconbitmap(default=resource_path("assets/img/dojo.ico"))    
         self.atualizar_atrasados = atualizar_atrasados
         self.title("Bunshin Dojo")
         self.title("Registro de pagamento")
@@ -29,7 +26,6 @@ class pagamentoFrame(tk.Toplevel):
         self.geometry(f"{largura}x{altura}+{pos_x}+{pos_y}")
         
         self.create_widgets()
-        self.deiconify()
         
     def create_widgets(self):
         style = ttk.Style()
