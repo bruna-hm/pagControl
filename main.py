@@ -1,7 +1,7 @@
 from controllers.mainFrame import mainFrame
-from dao.connFactory import dao
+from dao.conn_factory import criar_tab
 
 if __name__ == "__main__":
-    banco = dao()
+    criar_tab()
     app = mainFrame()
     app.mainloop()

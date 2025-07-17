@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-import os
+from operator import itemgetter
 from views.utils import mes_pt, meses_pt, resource_path
-from dao.alunoDao import listar_alunos, cbb_alunos, anos, edit_aluno, del_aluno, id_aluno
+from dao.alunoDao import listar_alunos, cbb_alunos, edit_aluno, del_aluno, id_aluno
 from dao.pagDao import listar_pgts, edit_pgt, meses_pgt, anos_pgt
 
 class alunosFrame(tk.Toplevel):
@@ -71,32 +71,30 @@ class alunosFrame(tk.Toplevel):
             self.alunos_tree.delete(item)
         
         aluno_ids = {}
-        alunos = listar_alunos()
-        for n in alunos:
+        for n in listar_alunos():
             nome = n[1]
             turma = n[2]
             item_id = self.alunos_tree.insert('', 'end', text=f"‣ {nome} - {turma}", open=False)
             aluno_ids[nome] = item_id
         
-        ano_ids_por_aluno = {}
-        pgts = listar_pgts()
-        for p in pgts:
+        ano_por_aluno = {}
+        for p in sorted(listar_pgts(), key=itemgetter(1)):
             aluno_id = p[0]
             mes = p[1]
             ano = p[2]
             valor = p[3]
 
-            for a in alunos:
+            for a in listar_alunos():
                 if aluno_id == a[0]:
                     nome = a[1]
                     parent_id = aluno_ids.get(nome)
                     if parent_id:
                         chave = (nome, ano)
-                        if chave not in ano_ids_por_aluno:
+                        if chave not in ano_por_aluno:
                             ano_id = self.alunos_tree.insert(parent_id, 'end', text=str(ano), open=False)
-                            ano_ids_por_aluno[chave] = ano_id
+                            ano_por_aluno[chave] = ano_id
                         else:
-                            ano_id = ano_ids_por_aluno[chave]
+                            ano_id = ano_por_aluno[chave]
 
                         self.alunos_tree.insert(ano_id, 'end', text=f"{mes_pt(mes)} : R$ {valor}", open=False)
     
@@ -110,7 +108,7 @@ class alunosFrame(tk.Toplevel):
         nome_lbl = tk.Label(self.container_edit, text="Nome:", font=("Consolas", 12), background="white")
         nome_lbl.place(x=10, y=10)
         nome_cbb = ttk.Combobox(self.container_edit, width=30)
-        nome_cbb['values'] = [nome for nome in cbb_alunos()]
+        nome_cbb['values'] = [nome[0] for nome in cbb_alunos()]
         nome_cbb.place(x=10, y=35)
         
         turma_lbl = tk.Label(self.container_edit, text="Nova Turma:", font=("Consolas", 12), background="white")
@@ -145,7 +143,7 @@ class alunosFrame(tk.Toplevel):
         nome_lbl = tk.Label(self.container_edit, text="Nome:", font=("Consolas", 12), background="white")
         nome_lbl.place(x=30, y=10)
         nome_cbb = ttk.Combobox(self.container_edit, width=20)
-        nome_cbb['values'] = [nome for nome in cbb_alunos()]
+        nome_cbb['values'] = [nome[0] for nome in cbb_alunos()]
         nome_cbb.place(x=30, y=35)
         
         anomes_lbl = tk.Label(self.container_edit, text="Ano e Mês", font=("Consolas", 12), background="white")
@@ -153,8 +151,8 @@ class alunosFrame(tk.Toplevel):
         
         ano_cbb = ttk.Combobox(self.container_edit, width=5)
         ano_cbb.place(x=30, y=85)
-        mes_cbb = ttk.Combobox(self.container_edit, width=8)
-        mes_cbb.place(x=90, y=85)
+        meses_cbb = ttk.Combobox(self.container_edit, width=8)
+        meses_cbb.place(x=90, y=85)
         
         valor_lbl = tk.Label(self.container_edit, text="Novo Valor:", font=("Consolas", 12), background="white")
         valor_lbl.place(x=30, y=110)
@@ -169,10 +167,10 @@ class alunosFrame(tk.Toplevel):
             text="Salvar",
             style="Formulario.TButton",
             command=lambda: (
-                (edit_pgt(float(valor_ety.get()), id_aluno(nome_cbb.get()), mes_cbb.get(), int(ano_cbb.get())),
+                (edit_pgt(float(valor_ety.get()), id_aluno(nome_cbb.get()), meses_cbb.get(), int(ano_cbb.get())),
                  self.popular_treeview(),
                 self.container_edit.destroy()) 
-                if valor_ety.get() and nome_cbb.get() and mes_cbb.get() and ano_cbb.get() 
+                if valor_ety.get() and nome_cbb.get() and meses_cbb.get() and ano_cbb.get() 
                 else messagebox.showerror("Erro", "Campo em Branco, verifique as informações!")
             )
         )
@@ -191,16 +189,14 @@ class alunosFrame(tk.Toplevel):
             nome = nome_cbb.get()
             if nome:
                 aluno_id = id_aluno(nome)
-                anos_disponiveis = anos_pgt(aluno_id)
-                ano_cbb['values'] = anos_disponiveis
+                ano_cbb['values'] = [anos for anos in anos_pgt(aluno_id)]
         
         def atualizar_meses(event):
             nome = nome_cbb.get()
             if nome:
                 aluno_id = id_aluno(nome)
-                meses_disponiveis = meses_pgt(aluno_id)
-                meses = meses_pt(meses_disponiveis)
-                mes_cbb['values'] = meses
+                meses_aluno = meses_pgt(aluno_id)
+                meses_cbb['values'] = [m for m in meses_pt(sorted(meses_aluno))]
         
         nome_cbb.bind("<<ComboboxSelected>>", atualizar_anos)
         ano_cbb.bind("<<ComboboxSelected>>", atualizar_meses)        

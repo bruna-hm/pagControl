@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-import os
 from models.aluno import Aluno
 from dao.alunoDao import cad_aluno
 from views.utils import resource_path

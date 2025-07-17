@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-import os
 import datetime as dt
 from controllers.cadastroFrame import cadastroFrame
 from controllers.pagamentosFrame import pagamentoFrame
@@ -75,20 +74,19 @@ class mainFrame(tk.Tk):
                 lbl.destroy()
         
         self.atrasados_labels = []
-
         mes = mes_atual()
         pgt_atrasado = atrasados()
         
         style = ttk.Style()
         style.configure("Titulo.TLabel", font=("Segoe UI Semibold", 14))
-        pgt_atrasado_lbl = ttk.Label(self, text=f"* Pagamentos atrasados de {mes_pt(mes)} *", style="Titulo.TLabel", background="#ffd9df")
-        pgt_atrasado_lbl.place(relx=0.3, y=210)
-        self.atrasados_labels.append(pgt_atrasado_lbl)
+        atrasados_lbl = ttk.Label(self, text=f"* Pagamentos atrasados de {mes_pt(mes)} *", style="Titulo.TLabel", background="#ffd9df")
+        atrasados_lbl.place(relx=0.3, y=210)
+        self.atrasados_labels.append(atrasados_lbl)
             
         for i in range(len(pgt_atrasado)):
-            pgt_lbl = tk.Label(self, text=f"◉ {pgt_atrasado[i][1]}", font=("Segoe Ui", 12), background="#ffd9df")
-            pgt_lbl.place(x=300, y=250 + (i * 30))
-            self.atrasados_labels.append(pgt_lbl)
+            atrasado_lbl = tk.Label(self, text=f"◉ {pgt_atrasado[i][1]}", font=("Segoe Ui", 12), background="#ffd9df")
+            atrasado_lbl.place(x=300, y=250 + (i * 30))
+            self.atrasados_labels.append(atrasado_lbl)
         
     def abrir_aluno(self):
         aluno_form = cadastroFrame(self, atualizar_atrasados=self.popular_atrasados)

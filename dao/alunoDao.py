@@ -1,59 +1,32 @@
 import sqlite3
-
+from dao.conn_factory import executar_query
 
 def cad_aluno(aluno):
-    conn = sqlite3.connect("pagControl.db")
-    cur = conn.cursor()
-    cur.execute('INSERT INTO alunos (nome, turma) VALUES (?, ?)',
-                (aluno.nome, aluno.turma))
-    conn.commit()
-    conn.close()
+    executar_query(
+                    'INSERT INTO alunos (nome, turma) VALUES (?, ?)',
+                    (aluno.nome, aluno.turma),
+                    commit=True
+                )
+
 
 def id_aluno(nome):
-    conn = sqlite3.connect("pagControl.db")
-    cur = conn.cursor()
-    cur.execute("SELECT id FROM alunos WHERE nome = ?", (nome,))
-    id = cur.fetchone()
-    conn.close()
+    id = executar_query("SELECT id FROM alunos WHERE nome = ?", 
+                   (nome,),
+                   fetchone=True
+                   )
     return id[0]
 
 def cbb_alunos():
-    conn = sqlite3.connect("pagControl.db")
-    cur = conn.cursor()
-    cur.execute("SELECT nome FROM alunos")
-    nomes = cur.fetchall()
-    conn.close()
-    return nomes
+    return executar_query("SELECT nome FROM alunos", fetchall=True)
     
 def listar_alunos():
-    conn = sqlite3.connect("pagCOntrol.db")
-    cur = conn.cursor()
-    cur.execute('SELECT id, nome, turma FROM alunos')
-    alunos = cur.fetchall()
-    conn.close()
-    return alunos
+    return executar_query('SELECT id, nome, turma FROM alunos', fetchall=True)
 
 def anos():
-    conn = sqlite3.connect("pagControl.db")
-    cur = conn.cursor()
-    cur.execute('SELECT DISTINCT ano FROM pagamentos')
-    anos = cur.fetchall()
-    conn.close()
-    return anos
+    return executar_query('SELECT DISTINCT ano FROM pagamentos', fetchall=True)
 
 def edit_aluno(turma, id):
-    conn = sqlite3.connect("pagCOntrol.db")
-    cur = conn.cursor()
-    cur.execute('UPDATE alunos SET turma = ? WHERE id = ?', (turma, id))
-    
-    conn.commit()
-    conn.close()
+    return executar_query('UPDATE alunos SET turma = ? WHERE id = ?', (turma, id), commit=True)
 
 def del_aluno(id):
-    conn = sqlite3.connect("pagCOntrol.db")
-    cur = conn.cursor()
-    cur.execute("PRAGMA foreign_keys = ON;")
-    cur.execute('DELETE FROM alunos WHERE id = ?', (id,))
-    
-    conn.commit()
-    conn.close()
+    return executar_query('DELETE FROM alunos WHERE id = ?', (id,), commit=True)

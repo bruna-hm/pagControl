@@ -1,10 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-import os
 import datetime as dt
 from models.pagamento import Pagamento
-from views.utils import mes_pt, inv_mes, resource_path
+from views.utils import mes_pt, mes_inv, resource_path
 from dao.pagDao import cad_pgt
 from dao.alunoDao import cbb_alunos, id_aluno
 
@@ -62,7 +61,7 @@ class pagamentoFrame(tk.Toplevel):
             messagebox.showerror("Erro", "Campo em Branco, verifique as informações!")
         else:
             aluno_id = id_aluno(nome)
-            pgt = Pagamento(aluno_id, nome, inv_mes(mes), ano, float(valor))
+            pgt = Pagamento(aluno_id, nome, mes_inv(mes), ano, float(valor))
             cad_pgt(pgt)
             if self.atualizar_atrasados:
                 self.atualizar_atrasados()

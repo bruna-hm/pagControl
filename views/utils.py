@@ -28,10 +28,10 @@ meses = {
         12: "Dezembro"
     }
 
-def mes_pt(mes):   
+def mes_pt(mes):
     return meses.get(mes)
 
-def inv_mes(mes):
+def mes_inv(mes):
     inv = {e: n for n, e in meses.items()}
     return inv.get(mes)
 

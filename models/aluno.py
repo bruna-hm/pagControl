@@ -1,4 +1,3 @@
-from views.utils import mes_atual, mes_pt
 import datetime
 
 class Aluno():
@@ -10,10 +9,8 @@ class Aluno():
     
     def add_pagamento(self, mes, ano, valor):
         ano = datetime.now().year
-        if ano not in self.pagamentos:
-            self.pagamentos[ano] = {mes: valor}
-        else:
-            self.pagamentos[ano][mes] = valor
+        if ano not in self.pagamentos: self.pagamentos[ano] = {mes: valor}
+        else: self.pagamentos[ano][mes] = valor
                 
     def listar_pagamentos(self):
         return self.pagamentos
