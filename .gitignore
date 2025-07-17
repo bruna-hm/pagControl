@@ -1,7 +1,6 @@
-.venv/
 venv/
 build/
 dist/
 pagControl.db
-.__pycache__
+__pycache__
 .DS_Store
