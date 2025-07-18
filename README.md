@@ -1,4 +1,4 @@
-##pagControl
+## pagControl
 
 pagControl é um aplicativo desktop desenvolvido em Python com foco em estudos e para atender a uma necessidade real de controle de pagamentos de alunos. O projeto me permitiu aplicar conceitos de Programação Orientada a Objetos (OOP) e aprofundar conhecimentos com a linguagem.
 
@@ -19,7 +19,7 @@ pagControl é um aplicativo desktop desenvolvido em Python com foco em estudos e
    ```bash
    git clone https://github.com/bruna-hm/pagControl.git
    ```
-   
+
 2. Acesse o diretório do projeto:  
    ```bash
    cd pagControl
