@@ -6,6 +6,7 @@ pagControl é um aplicativo desktop desenvolvido em Python com foco em estudos e
 - Python
 - Tkinter
 - PyInstaller
+
 <br>Funcionalidades:
 - Cadastro de alunos
 - Registro de pagamentos
@@ -16,10 +17,9 @@ pagControl é um aplicativo desktop desenvolvido em Python com foco em estudos e
 ## Como Usar
 1. Clone o repositório:  
    ```bash
-   git clone https://github.com/seu-usuario/pagControl.git
+   git clone https://github.com/bruna-hm/pagControl.git
    ```
-   > Substitua o link acima pelo da sua conta, se necessário.
-
+   
 2. Acesse o diretório do projeto:  
    ```bash
    cd pagControl
