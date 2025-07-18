@@ -8,7 +8,6 @@ def executar_query(query, params=(), rowcount=False, fetchall=False, fetchone=Fa
 
         if commit:
             conn.commit()
-
         if rowcount:
             return cur.rowcount()
         if fetchone:
