@@ -1,17 +1,52 @@
-<h2><center>pagControl</center></h2>
+##pagControl
 
-O pagControl é um aplicativo Desktop feito em Python, para estudo de CRUD, GUI com tkinter e Programação Orientada à Objetos em Python. Feito a partir das necessidades do cliente; registrar pagamentos de alunos.
-<br>Funcionalidades: cadastrar Alunos, cadastrar Pagamentos, vizualizar Alunos e seus pagamentos registrados, editar Turma, editar Valor de pagamento e excluir Aluno(exclui também seus pagamentos).
+pagControl é um aplicativo desktop desenvolvido em Python com foco em estudos e para atender a uma necessidade real de controle de pagamentos de alunos. O projeto me permitiu aplicar conceitos de Programação Orientada a Objetos (OOP) e aprofundar conhecimentos com a linguagem.
+
+<br>Tecnologias:
+- Python
+- Tkinter
+- PyInstaller
+<br>Funcionalidades:
+- Cadastro de alunos
+- Registro de pagamentos
+- Visualização de alunos e seus pagamentos
+- Edição de turma e valor de pagamento
+- Exclusão de alunos (e seus respectivos pagamentos)
 
 ## Como Usar
-<ol>
-  <li>Faça um clone do programa</li>
-  <li>Na cmd/PowerShell, vá até o diretório principal do Aplicativo</li>
-  <li>Ative o ambiente virtual dele com: <strong>.\venv\Scripts\activate</strong></li>
-  <li>Instale as dependências com: <strong>pip -r install requirements.txt</strong></li>
-  <li>Crie um executável do Aplicativo com: <strong>pyinstaller main.spec</strong></li>
-  <li>Vá até o diretório "dist" e crie um atalho do Aplicativo para a área de trabalho.</li>
-</ol>
+1. Clone o repositório:  
+   ```bash
+   git clone https://github.com/seu-usuario/pagControl.git
+   ```
+   > Substitua o link acima pelo da sua conta, se necessário.
+
+2. Acesse o diretório do projeto:  
+   ```bash
+   cd pagControl
+   ```
+
+3. Crie e ative o ambiente virtual (no Windows):  
+   ```bash
+   python -m venv venv
+   .\venv\Scripts\activate
+   ```
+
+4. Instale as dependências do projeto:  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. Gere o executável com o PyInstaller:  
+   ```bash
+   pyinstaller main.spec
+   ```
+
+6. Após a finalização, entre na pasta `dist`:  
+   ```bash
+   cd dist
+   ```
+
+7. Dentro da pasta `dist`, localize o executável gerado e crie um atalho para ele na área de trabalho, se desejar.
 
 ## Sugestões e contribuições
 Qualquer melhoria ou comentário sobre o projeto, por favor, entrem em contato por: 
