@@ -176,13 +176,7 @@ class alunosFrame(tk.Toplevel):
         )
         salvar_btn.place(x=10, y=180)
 
-
-        cancel_btn = ttk.Button(
-            self.container_edit,
-            text="Cancelar",
-            style="Formulario.TButton",
-            command=self.container_edit.destroy
-        )
+        cancel_btn = ttk.Button(self.container_edit, text="Cancelar", style="Formulario.TButton", command=self.container_edit.destroy)
         cancel_btn.place(x=110, y=180)
         
         def atualizar_anos(event):

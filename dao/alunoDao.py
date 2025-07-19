@@ -2,18 +2,10 @@ import sqlite3
 from dao.conn_factory import executar_query
 
 def cad_aluno(aluno):
-    executar_query(
-                    'INSERT INTO alunos (nome, turma) VALUES (?, ?)',
-                    (aluno.nome, aluno.turma),
-                    commit=True
-                )
-
+    executar_query('INSERT INTO alunos (nome, turma) VALUES (?, ?)', (aluno.nome, aluno.turma), commit=True)
 
 def id_aluno(nome):
-    id = executar_query("SELECT id FROM alunos WHERE nome = ?", 
-                   (nome,),
-                   fetchone=True
-                   )
+    id = executar_query("SELECT id FROM alunos WHERE nome = ?", (nome,), fetchone=True)
     return id[0]
 
 def cbb_alunos():

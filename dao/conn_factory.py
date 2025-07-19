@@ -10,7 +10,7 @@ def executar_query(query, params=(), rowcount=False, fetchall=False, fetchone=Fa
             conn.commit()
         if rowcount:
             return cur.rowcount()
-        if fetchone:
+        elif fetchone:
             return cur.fetchone()
         elif fetchall:
             return cur.fetchall()
